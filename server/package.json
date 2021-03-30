@@ -1,6 +1,11 @@
 {
   "name": "server",
   "version": "1.0.0",
-  "main": "index.js",
-  "license": "MIT"
+  "main": "server.js",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "node server",
+    "server": "nodemon serve"
+  }
 }
