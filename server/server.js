@@ -2,12 +2,12 @@ const express = require("express");
 const app = express();
 const expressip = require("express-ip");
 const PORT = process.env.PORT || 80;
-const path = require("path");
 const ngrok = require("ngrok");
+
+// http://localhost:4040/inspect/http
 
 (async function () {
   const url = await ngrok.connect();
-  console.log(url);
 })();
 
 app.use(expressip().getIpInfoMiddleware);
@@ -16,8 +16,7 @@ app.set("PORT", PORT);
 
 app.get("/", function (req, res) {
   const ipInfo = req.ipInfo;
-  console.log(ipInfo);
-  var message = `Hey, you are browsing from ${ipInfo.city}, ${ipInfo.country}`;
+  const message = `Hey, you are browsing from ${ipInfo.city}, ${ipInfo.country} and your IP ${ipInfo.ip}`;
   res.send(message);
 });
 
