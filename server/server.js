@@ -2,14 +2,6 @@ const express = require("express");
 const app = express();
 const expressip = require("express-ip");
 const PORT = process.env.PORT || 80;
-const ngrok = require("ngrok");
-
-// http://localhost:4040/inspect/http
-// Thanks My nodemone is globally installed Thanks...
-
-(async function () {
-  await ngrok.connect();
-})();
 
 app.use(expressip().getIpInfoMiddleware);
 
