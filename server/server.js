@@ -7,7 +7,7 @@ const ngrok = require("ngrok");
 // http://localhost:4040/inspect/http
 
 (async function () {
-  const url = await ngrok.connect();
+  await ngrok.connect();
 })();
 
 app.use(expressip().getIpInfoMiddleware);
