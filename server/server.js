@@ -3,6 +3,17 @@ const app = express();
 const expressip = require("express-ip");
 const PORT = process.env.PORT || 80;
 
+// We can use this when we are offline
+
+// const ngrok = require("ngrok");
+
+// // http://localhost:4040/inspect/http
+// // Thanks My nodemone is globally installed Thanks...
+
+// (async function () {
+//   await ngrok.connect();
+// })();
+
 app.use(expressip().getIpInfoMiddleware);
 
 app.set("PORT", PORT);
